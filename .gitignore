@@ -1,0 +1,27 @@
+# Runtime documents, extracted text and local metadata
+data/uploads/*
+data/extracted/*
+data/*.sqlite3
+data/*.sqlite3-shm
+data/*.sqlite3-wal
+!data/samples/
+!data/annotations/
+
+# Python
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+
+# Frontend
+node_modules/
+frontend/dist/
+frontend/.env.local
+frontend/.env
+
+# Local environment and editor files
+.env
+.idea/
+.vscode/
+Thumbs.db

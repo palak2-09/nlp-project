@@ -1,0 +1,7 @@
+SYNTHETIC DEMONSTRATION DOCUMENT — not a research finding
+
+Title: A small example for PaperGraph AI
+
+This note describes a fictional system called PaperGraph AI. PaperGraph AI uses source-linked text chunks to preserve where a statement appeared in an uploaded document.
+
+In this example, the fictional method Evidence Linking connects a Claim to a Source Passage. The example is only for exercising document ingestion and annotation tooling; it is not evidence about a real method or dataset.

@@ -1,0 +1,1 @@
+"""PaperGraph AI backend application."""

@@ -1,0 +1,4 @@
+# Optional: install this file only when PAPERGRAPH_ENABLE_EMBEDDINGS=true.
+# CPU inference works, but the initial model download needs internet access.
+-r requirements.txt
+sentence-transformers>=3.4,<6.0
