@@ -26,10 +26,10 @@ class Settings:
     enable_embeddings: bool = False
     entity_match_threshold: float = 0.93
     entity_review_threshold: float = 0.78
-    llm_provider: str = "none"
+    llm_provider: str = "gemini"
     llm_base_url: str = "https://api.openai.com/v1"
     llm_api_key: str = ""
-    llm_model: str = "gemini-3.8-flash"
+    llm_model: str = "gemini-2.5-flash"
     llm_timeout_seconds: int = 45
     llm_max_chunks_per_document: int = 20
     llm_max_input_chars: int = 12000
@@ -62,7 +62,7 @@ def get_settings() -> Settings:
     graph_backend = os.getenv("PAPERGRAPH_GRAPH_BACKEND", "sqlite").strip().lower()
     if graph_backend not in {"sqlite", "neo4j"}:
         raise ValueError("PAPERGRAPH_GRAPH_BACKEND must be 'sqlite' or 'neo4j'.")
-    llm_provider = os.getenv("PAPERGRAPH_LLM_PROVIDER", "none").strip().lower()
+    llm_provider = os.getenv("PAPERGRAPH_LLM_PROVIDER", "gemini").strip().lower()
     if llm_provider not in {"none", "gemini", "openai_compatible"}:
         raise ValueError("PAPERGRAPH_LLM_PROVIDER must be 'none', 'gemini', or 'openai_compatible'.")
     minimum_confidence = float(os.getenv("PAPERGRAPH_MIN_EXTRACTION_CONFIDENCE", "0.0"))
@@ -90,7 +90,7 @@ def get_settings() -> Settings:
         llm_provider=llm_provider,
         llm_base_url=os.getenv("PAPERGRAPH_LLM_BASE_URL", "https://api.openai.com/v1").rstrip("/"),
         llm_api_key=os.getenv("PAPERGRAPH_LLM_API_KEY", ""),
-        llm_model=os.getenv("PAPERGRAPH_LLM_MODEL", "gemini-3.8-flash").strip(),
+        llm_model=os.getenv("PAPERGRAPH_LLM_MODEL", "gemini-2.5-flash").strip(),
         llm_timeout_seconds=int(os.getenv("PAPERGRAPH_LLM_TIMEOUT_SECONDS", "45")),
         llm_max_chunks_per_document=int(os.getenv("PAPERGRAPH_LLM_MAX_CHUNKS_PER_DOCUMENT", "20")),
         llm_max_input_chars=int(os.getenv("PAPERGRAPH_LLM_MAX_INPUT_CHARS", "12000")),

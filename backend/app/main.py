@@ -26,6 +26,11 @@ def create_app(settings: Settings | None = None) -> FastAPI:
         lifespan=lifespan,
     )
     application.state.settings = configured
+    print("\n========== PAPERGRAPH CONFIG ==========")
+    print("Provider:", configured.llm_provider)
+    print("Model:", configured.llm_model)
+    print("API Key Loaded:", bool(configured.llm_api_key))
+    print("=======================================\n")
     application.add_middleware(
         CORSMiddleware,
         allow_origins=list(configured.cors_origins),

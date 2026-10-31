@@ -183,6 +183,7 @@ def test_gemini_native_json_request_and_settings_hide_api_key(client, monkeypatc
     assert payload["systemInstruction"]["parts"][0]["text"] == "System guidance"
     assert payload["generationConfig"]["responseFormat"]["text"]["mimeType"] == "APPLICATION_JSON"
     assert payload["generationConfig"]["responseFormat"]["text"]["schema"] == schema
+    assert payload["generationConfig"]["thinkingConfig"]["thinkingLevel"] == "LOW"
 
     public_settings = client.get("/api/settings").json()
     assert public_settings["llm_provider"] == "gemini"

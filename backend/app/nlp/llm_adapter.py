@@ -32,6 +32,8 @@ def _request_payload(settings: Settings, system_message: str, user_message: str,
                 },
             },
         }
+        if settings.llm_model.startswith("gemini-3"):
+            payload["generationConfig"]["thinkingConfig"] = {"thinkingLevel": "LOW"}
         url = f"{GEMINI_API_BASE_URL}/models/{quote(settings.llm_model, safe='-._')}:generateContent"
         headers = {"x-goog-api-key": settings.llm_api_key, "Content-Type": "application/json"}
     elif settings.llm_provider == "openai_compatible":

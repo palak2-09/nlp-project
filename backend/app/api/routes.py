@@ -1,6 +1,7 @@
 import hashlib
 from pathlib import Path
 import uuid
+import fastapi 
 
 from fastapi import APIRouter, BackgroundTasks, HTTPException, Query, Request, UploadFile, status
 from fastapi.responses import Response
